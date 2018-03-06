@@ -48,7 +48,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <title>Login</title>\n");
       out.write("  </head>\n");
       out.write("  <body>\n");
-      out.write("    <form action=\"login\">\n");
+      out.write("    <form action=\"login\" method=\"post\">\n");
       out.write("      Username:<input type=\"text\" name=\"username\"/><br/>\n");
       out.write("      Password:<input type=\"password\" name=\"password\"><br/>\n");
       out.write("      <input type=\"submit\"/>\n");

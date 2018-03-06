@@ -9,19 +9,26 @@ import java.sql.*;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         if(LoginDao.validate(username, password)) {
-                response.sendRedirect("add-blog.jsp");
+            response.sendRedirect("add-blog.jsp");
         } else {
-                response.sendRedirect("invalid-credentials.jsp");
+            response.sendRedirect("invalid-credentials.jsp");
         }
-//        try {
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//
+//        if(LoginDao.validate(username, password)) {
+//                response.sendRedirect("add-blog.jsp");
+//        } else {
+//                response.sendRedirect("invalid-credentials.jsp");
+//        }
+////        try {
 //            Class.forName("com.mysql.jdbc.Driver");
 //            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/servlet","root","test");
 //            PreparedStatement statement =
