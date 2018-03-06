@@ -8,4 +8,4 @@
 4. User should see a successful message on successful submission and error message unsuccessful submission.
 
 
-Include mysql dump of the database.
+Includes mysql dump of the database.
