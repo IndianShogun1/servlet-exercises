@@ -8,4 +8,7 @@
 4. User should see a successful message on successful submission and error message unsuccessful submission.
 
 
-Includes mysql dump of the database.
+Includes servlet.sql mysql dump of the database.
+
+Q1 and Q2 are done in LoginServlet and LoginDao.
+Q3 and Q4 are done in AddBlogServlet and AddBlogDao.
