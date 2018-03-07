@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet(name = "AddBlogServlet")
 public class AddBlogServlet extends HttpServlet {
@@ -16,18 +17,14 @@ public class AddBlogServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         int id = Integer.valueOf(request.getParameter("id"));
         String content = request.getParameter("content");
-        if(AddBlogDao.addBlog(id, content)){
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Save successful');");
-            out.println("location='add-blog.jsp';");
-            out.println("</script>");
-//            response.sendRedirect("add-blog.jsp");
-        } else {
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Save unsuccessful');");
-            out.println("location='add-blog.jsp';");
-            out.println("</script>");
-//            response.sendRedirect("add-blog.jsp");
+        try {
+            if(AddBlogDao.addBlog(id, content)){
+                response.sendRedirect("success.jsp");
+            } else {
+                response.sendRedirect("failure.jsp");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
